@@ -1,0 +1,120 @@
+.nav__header {
+  padding-block: 1rem;
+  box-shadow: 0 1.5px 8px var(--clr-light-blue);
+  ;
+}
+
+.active-nav {
+  background-color: red;
+}
+
+.header__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__container h1 {
+  color: var(--clr-light-blue);
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+}
+
+.nav__links li a {
+  color: var(--clr-black);
+  transition: var(--transition-fast);
+  cursor: pointer;
+}
+
+.nav__links li a:hover {
+  color: var(--clr-light-blue);
+}
+
+.btns {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btns .login-btn {
+  background-color: transparent;
+  border: 1px solid var(--clr-light-blue);
+  color: var(--clr-light-blue);
+  border-radius: 10px;
+  font-size: 1.0625rem;
+  width: clamp(80px, 10vw, 100px);
+  transition: var(--transition-fast);
+}
+
+.btns .login-btn:hover {
+  color: var(--clr-white);
+  background-color: var(--clr-light-blue);
+}
+
+.nav__btns {
+  display: none;
+}
+
+.no-scroll {
+  overflow-y: hidden;
+}
+
+
+@media (max-width:780px) {
+  .nav {
+    position: fixed;
+    inset: 0 0 0 20%;
+    background-color: rgb(255, 255, 255);
+    flex-direction: column;
+    padding-top: 7rem;
+    gap: 1rem;
+    transform: translateX(100%);
+    backdrop-filter: blur(1rem);
+    z-index: 9;
+    transition: var(--transition-fast);
+  }
+
+  .show__nav {
+    transform: translateX(0);
+  }
+
+  .nav__links {
+    gap: .5rem;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btns {
+    align-items: center;
+    flex-direction: column;
+    gap: .8rem;
+  }
+
+  .nav__btns {
+    display: block;
+    z-index: 99;
+  }
+
+  .nav__btns button {
+    background-color: transparent;
+    border: none;
+    color: var(--clr-light-blue);
+    font-size: 1.7rem;
+    transition: var(--transition-fast);
+  }
+
+  .nav__btns button:hover {
+    transform: rotate(180deg);
+  }
+}

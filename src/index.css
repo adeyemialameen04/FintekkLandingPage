@@ -1,0 +1,338 @@
+/* Andy Bell's CSS Resets */
+
+.resize-animation-stopper * {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* https://piccalil.li/blog/a-modern-css-reset */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  text-decoration: none;
+
+
+  /* Colors */
+  --clr-light-blue: hsl(227, 100%, 59%);
+  --clr-dark-blue: hsl(227, 70%, 30%);
+  --clr-white: hsl(0, 0%, 100%);
+  --clr-black: hsl(0, 0%, 0%);
+  --clr-lighter-blue: hsl(202, 65%, 97%);
+  --clr-gray: hsl(0, 0%, 62%);
+  --clr-pink: hsl(306, 100%, 69%);
+  --clr-lighter-pink: hsl(0, 80%, 98%);
+
+  /* Transitions */
+  --transition-slow: all 350ms ease-in-out;
+  --transition-fast: all 500ms ease-out;
+
+  /* Container Widths */
+  --container-md: 92%;
+  --container-lg: 85%;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+/* Set core body defaults */
+body {
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-family: 'Lato', sans-serif;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+/* GENERAL STYLES */
+
+.container {
+  width: var(--container-md);
+  margin: 0 auto;
+}
+
+.long-btn {
+  padding-block: .2rem;
+  display: grid;
+  place-content: center;
+}
+
+.short-btn {
+  padding-inline: 1rem;
+  padding-block: .2rem;
+}
+
+.blue-btn {
+  background-color: var(--clr-light-blue);
+  color: var(--clr-white);
+  font-size: 1.0625rem;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  width: clamp(100px, 15vw, 180px);
+  transition: var(--transition-fast);
+}
+
+.blue-btn:hover {
+  color: var(--clr-light-blue);
+  background-color: var(--clr-white);
+  border: 1px solid var(--clr-dark-blue);
+}
+
+.blue-header {
+  font-size: 2.3rem;
+  color: var(--clr-dark-blue);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 3rem;
+}
+
+.mini-blue-header {
+  color: var(--clr-dark-blue);
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+.p-gray {
+  font-size: 0.9rem;
+  color: var(--clr-gray);
+}
+
+.toTopBtn {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: var(--clr-dark-blue);
+  aspect-ratio: 1/1;
+  display: grid;
+  place-content: center;
+  color: var(--clr-white);
+  border: 1px solid transparent;
+  transition: var(--transition-slow);
+  position: fixed;
+  /* display: none; */
+  bottom: 5%;
+  left: 2%;
+}
+
+.toTopBtn:hover {
+  background-color: transparent;
+  border-color: var(--clr-dark-blue);
+  border-width: 3px;
+  color: var(--clr-dark-blue);
+}
+
+.toTopIcon {
+  font-size: 1.5rem;
+}
+
+.footer-p-blue {
+  font-size: .9rem;
+  color: var(--clr-light-blue);
+}
+
+.footer-h2-blue {
+  font-weight: 600;
+  color: var(--clr-dark-blue);
+}
+
+footer {
+  padding-block: 6rem;
+}
+
+.footer__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+}
+
+.left__footer {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 2rem;
+}
+
+.footer__grid article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5rem;
+}
+
+.right__footer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  text-align: center;
+}
+
+.right__footer .footer-p-blue>span {
+  color: var(--clr-dark-blue);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.footer__link {
+  position: relative;
+}
+
+.footer__link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  transform: scaleX(0);
+  background-color: var(--clr-dark-blue);
+  bottom: -1px;
+  left: 0;
+  transform-origin: left;
+  transition: var(--transition-slow);
+}
+
+.footer__link:hover::after {
+  transform-origin: right;
+  transform: scaleX(1);
+}
+
+/* LOADING */
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.lds-ring.hidden {
+  /* display: none; */
+}
+
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid black;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: black transparent transparent transparent;
+}
+
+.center-loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 270px) {
+  .blue-header {
+    font-size: 1.5rem;
+  }
+
+  .mini-blue-header {
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width:780px) {
+  .container {
+    width: var(--container-lg);
+  }
+
+  .footer__container {
+    /* align-items: start; */
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .left__footer {
+    flex-direction: row;
+    text-align: left;
+    gap: 1rem;
+    /* align-items: start; */
+    /* align-items: center; */
+  }
+
+  .left__footer>div:nth-child(1) {
+    /* background-color: red; */
+    width: 60%;
+  }
+
+  .footer__grid {
+    width: 80%;
+  }
+
+  .right__footer {
+    flex-direction: row;
+    gap: 25rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
