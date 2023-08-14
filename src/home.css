@@ -12,7 +12,6 @@
 
 .scroll-from-bottom {
   position: relative;
-  /* bottom: -180px; */
   transform: translateX(-100%);
   transition: all 1s ease-out;
   opacity: 0;
@@ -261,7 +260,6 @@
 .service {
   padding-block: .7rem;
   padding-inline: 2rem;
-
   display: flex;
   flex-direction: column;
   align-items: start;
